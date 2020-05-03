@@ -11,7 +11,6 @@ gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'devise'
-gem 'faker'
 gem 'will_paginate'
 
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -19,6 +18,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem "rspec-rails"
+  gem 'faker'
 end
 
 group :development do
