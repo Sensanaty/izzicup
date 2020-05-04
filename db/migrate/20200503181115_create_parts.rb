@@ -2,7 +2,7 @@ class CreateParts < ActiveRecord::Migration[6.0]
   def change
     create_table :parts do |t|
       t.string :part_number,          null: false
-      t.datetime :date_added,         default: DateTime.current
+      t.datetime :date_added
       t.string :description,          null: false
       t.integer :quantity_available,  null: false
       t.integer :quantity_reserved,   default: 0

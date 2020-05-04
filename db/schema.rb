@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2020_05_03_181115) do
 
   create_table "parts", force: :cascade do |t|
     t.string "part_number", null: false
-    t.datetime "date_added", default: "2020-05-03 18:59:24"
+    t.datetime "date_added"
     t.string "description", null: false
     t.integer "quantity_available", null: false
     t.integer "quantity_reserved", default: 0
