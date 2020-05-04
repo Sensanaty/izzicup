@@ -17,16 +17,17 @@ puts "\nGenerating 25 Parts:\n"
 25.times do |i|
   puts "\n\e[0m #{(i + 1).ordinalize} Part"
   part = Part.new(part_number: Faker::DrivingLicence.british_driving_licence,
-              description: Faker::Appliance.equipment,
-              quantity_available: rand(1..250),
-              condition: "NE",
-              base_price: 15000,
-              cost: 13000,
-              minimum_order: rand(1..250),
-              tag: "MFR 8130/TRACE; STOCK USA **MOQ=10EA**",
-              quote_type: "OUTRIGHT SALE")
+                  date_added: DateTime.current,
+                  description: Faker::Appliance.equipment,
+                  quantity_available: 150,
+                  condition: "NE",
+                  base_price: 15000,
+                  cost: 13000,
+                  minimum_order: 100,
+                  tag: "MFR 8130/TRACE; STOCK USA **MOQ=10EA**",
+                  quote_type: "OUTRIGHT SALE")
   puts "\e[33m Part Number:\e[32m #{part.part_number}"
   puts "\e[33m Description:\e[32m #{part.description}"
-  part.save
+  part.save!
 end
 puts "\e[31mFinished generating Parts\e[0m"
