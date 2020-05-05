@@ -21,8 +21,8 @@ puts "\nGenerating 25 Parts:\n"
                   description: Faker::Appliance.equipment,
                   quantity_available: 150,
                   condition: "NE",
-                  base_price: 15000,
-                  cost: 13000,
+                  base_price: 150,
+                  cost: 130,
                   minimum_order: 100,
                   tag: "MFR 8130/TRACE; STOCK USA **MOQ=10EA**",
                   quote_type: "OUTRIGHT SALE")

@@ -34,8 +34,8 @@
         <td style="text-align: center"><%= @part.quantity_reserved || "" if @part.quantity_reserved.nil? %></td>
         <td style="text-align: center"><%= @part.quantity_sold || "" if @part.quantity_sold.nil? %></td>
         <td style="text-align: center"><%= @part.condition %></td>
-        <td style="text-align: center"><%= '%.2f' % (@part.cost * 0.01) %></td>
-        <td style="text-align: center"><%= '%.2f' % (@part.base_price * 0.01) %></td>
+        <td style="text-align: center"><%= '%.2f' % @part.cost  %></td>
+        <td style="text-align: center"><%= '%.2f' % @part.base_price  %></td>
         <td style="text-align: center"><%= @part.minimum_order %></td>
         <td style="text-align: center"><%= @part.medium_order || "" if @part.medium_order.nil? %></td>
         <td style="text-align: center"><%= @part.max_order || "" if @part.max_order.nil? %></td>
