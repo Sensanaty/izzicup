@@ -1,45 +1,49 @@
 <h1>Parts Table</h1>
 
 <%= will_paginate @paginated %>
-<table>
-  <thead>
-  <tr>
-    <td>Part Number</td>
-    <td>Date Added</td>
-    <td>Description</td>
-    <td>Quantity Available</td>
-    <td>Quantity Reserved</td>
-    <td>Quantity Sold</td>
-    <td>Condition</td>
-    <td>Cost ($)</td>
-    <td>Base Price ($)</td>
-    <td>Minimum Order</td>
-    <td>Order Discount</td>
-    <td>Max Order Discount</td>
-    <td>Lead Time</td>
-    <td>Quote Type</td>
-    <td>Tag</td>
-  </tr>
-  </thead>
-  <tbody>
-  <% @paginated.each do |part| %>
-    <tr style="height: 50px">
-      <td> <%= part.part_number %></td>
-      <td> <%= part.date_added.strftime('%d %b %Y') %></td>
-      <td> <%= part.description %></td>
-      <td> <%= part.quantity_available %></td>
-      <td> <%= part.quantity_reserved || "" if part.quantity_reserved.nil? %></td>
-      <td> <%= part.quantity_sold || "" if part.quantity_sold.nil? %></td>
-      <td> <%= part.condition %></td>
-      <td> <%= '%.2f' % (part.cost * 0.01) %></td>
-      <td> <%= '%.2f' % (part.base_price * 0.01) %></td>
-      <td> <%= part.minimum_order %></td>
-      <td> <%= part.medium_order || "" if part.medium_order.nil? %></td>
-      <td> <%= part.max_order || "" if part.max_order.nil? %></td>
-      <td> <%= part.lead_time || "" if part.lead_time.nil? %></td>
-      <td> <%= part.quote_type %></td>
-      <td> <%= part.tag.upcase %></td>
+<div class="table-div">
+  <table>
+    <thead>
+    <tr>
+      <td>Link to Part</td>
+      <td>Part Number</td>
+      <td>Date Added</td>
+      <td>Description</td>
+      <td>Quantity Available</td>
+      <td>Quantity Reserved</td>
+      <td>Quantity Sold</td>
+      <td>Condition</td>
+      <td>Cost ($)</td>
+      <td>Base Price ($)</td>
+      <td>Minimum Order</td>
+      <td>Order Discount</td>
+      <td>Max Order Discount</td>
+      <td>Lead Time</td>
+      <td>Quote Type</td>
+      <td>Tag</td>
     </tr>
-  <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+    <% @paginated.each do |part| %>
+      <tr>
+        <td><%= link_to "Link", part_path(part) %></td>
+        <td style="text-align: center"><%= part.part_number %></td>
+        <td style="text-align: center"><%= part.date_added.strftime('%d/%m/%Y') %></td>
+        <td><%= part.description %></td>
+        <td style="text-align: center"><%= part.quantity_available %></td>
+        <td style="text-align: center"><%= part.quantity_reserved || "" if part.quantity_reserved.nil? %></td>
+        <td style="text-align: center"><%= part.quantity_sold || "" if part.quantity_sold.nil? %></td>
+        <td style="text-align: center"><%= part.condition %></td>
+        <td style="text-align: center"><%= '%.2f' % (part.cost * 0.01) %></td>
+        <td style="text-align: center"><%= '%.2f' % (part.base_price * 0.01) %></td>
+        <td style="text-align: center"><%= part.minimum_order %></td>
+        <td style="text-align: center"><%= part.medium_order || "" if part.medium_order.nil? %></td>
+        <td style="text-align: center"><%= part.max_order || "" if part.max_order.nil? %></td>
+        <td style="text-align: center"><%= part.lead_time || "" if part.lead_time.nil? %></td>
+        <td><%= part.quote_type %></td>
+        <td><%= part.tag.upcase %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
