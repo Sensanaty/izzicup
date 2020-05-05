@@ -15,9 +15,8 @@ class PartsController < ApplicationController
   end
 
   def update
-    @part = Part.find(params[:id])
-    if @part.update(params[part_params])
-      redirect_to part_path(@part)
+    if @part.update(part_params)
+      redirect_to @part
     else
       render :edit
     end

@@ -1,2 +1,21 @@
-<h1><%= @part.description %></h1>
+<h1>Edit <%= @part.description %></h1>
 <h2><%= link_to "Go Back", :back %></h2>
+
+<%= simple_form_for @part do |f| %>
+  <%= f.input :part_number %>
+  <%= f.input :date_added, as: :datetime %>
+  <%= f.input :description %>
+  <%= f.input :quantity_available, as: :integer %>
+  <%= f.input :quantity_reserved, as: :integer %>
+  <%= f.input :quantity_sold, as: :integer %>
+  <%= f.input :condition %>
+  <%= f.input :base_price, as: :integer, label: "Price ($)", input_html: { value: number_with_precision(f.object.base_price, precision: 2)} %>
+  <%= f.input :cost, as: :integer, label: "Cost ($)", input_html: { value: number_with_precision(f.object.cost, precision: 2)} %>
+  <%= f.input :minimum_order, as: :integer %>
+  <%= f.input :medium_order, as: :integer %>
+  <%= f.input :max_order, as: :integer %>
+  <%= f.input :lead_time %>
+  <%= f.input :tag %>
+  <%= f.input :quote_type %>
+  <%= f.button :submit %>
+<% end %>
