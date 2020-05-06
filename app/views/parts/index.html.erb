@@ -2,6 +2,7 @@
 <h2><%= link_to "To Index", root_path %></h2>
 
 <%== pagy_nav(@pagy) %>
+<%== pagy_items_selector_js(@pagy, :submit)  %>
 
 <div class="table-div">
   <table>

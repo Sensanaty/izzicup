@@ -76,9 +76,9 @@
 
 # Items extra: Allow the client to request a custom number of items per page with an optional selector UI
 # See https://ddnexus.github.io/pagy/extras/items
-# require 'pagy/extras/items'
-# Pagy::VARS[:items_param] = :items    # default
-# Pagy::VARS[:max_items]   = 100       # default
+require 'pagy/extras/items'
+Pagy::VARS[:items_param] = :items
+Pagy::VARS[:max_items]   = 100
 
 # Overflow extra: Allow for easy handling of overflowing pages
 # See https://ddnexus.github.io/pagy/extras/overflow
@@ -104,7 +104,7 @@
 
 # Instance variables
 # See https://ddnexus.github.io/pagy/api/pagy#instance-variables
-# Pagy::VARS[:items] = 20                                   # default
+Pagy::VARS[:items] = 25
 
 # Other Variables
 # See https://ddnexus.github.io/pagy/api/pagy#other-variables
