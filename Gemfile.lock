@@ -114,6 +114,7 @@ GEM
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
+    pagy (3.8.0)
     pg (1.2.3)
     pry (0.13.1)
       coderay (~> 1.1)
@@ -234,7 +235,6 @@ GEM
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.4)
-    will_paginate (3.3.0)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.3.0)
@@ -250,6 +250,7 @@ DEPENDENCIES
   faker
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
+  pagy
   pg (>= 0.18, < 2.0)
   pry
   pry-rails
@@ -266,7 +267,6 @@ DEPENDENCIES
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 4.0)
-  will_paginate
 
 RUBY VERSION
    ruby 2.6.6p146
