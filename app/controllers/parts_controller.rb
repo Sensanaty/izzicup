@@ -1,7 +1,8 @@
 class PartsController < ApplicationController
   before_action :set_part, only: [:edit, :update, :show]
+
   def index
-    @paginated = Part.paginate(page: params[:page], per_page: 10)
+    @pagy, @parts = pagy(Part.all.order("updated_at DESC"))
   end
 
   def show

@@ -1,5 +1,8 @@
 <h1>Parts Table</h1>
-<%= will_paginate @paginated %>
+<h2><%= link_to "To Index", root_path %></h2>
+
+<%== pagy_nav(@pagy) %>
+
 <div class="table-div">
   <table>
     <thead>
@@ -20,10 +23,11 @@
       <td>Lead Time</td>
       <td>Quote Type</td>
       <td>Tag</td>
+      <td>Last Updated</td>
     </tr>
     </thead>
     <tbody>
-    <% @paginated.reverse.each do |part| %>
+    <% @parts.each do |part| %>
       <tr>
         <td><%= link_to "Link", part_path(part) %> | <%= link_to "Edit Part", edit_part_path(part) %></td>
         <td style="text-align: center"><%= part.part_number %></td>
@@ -41,6 +45,7 @@
         <td style="text-align: center"><%= part.lead_time %></td>
         <td><%= part.quote_type %></td>
         <td><%= part.tag.upcase %></td>
+        <td><%= part.updated_at.strftime('%d/%m/%Y %H:%M') %></td>
       </tr>
     <% end %>
     </tbody>
