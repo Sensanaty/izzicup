@@ -82,8 +82,8 @@ Pagy::VARS[:max_items]   = 100
 
 # Overflow extra: Allow for easy handling of overflowing pages
 # See https://ddnexus.github.io/pagy/extras/overflow
-# require 'pagy/extras/overflow'
-# Pagy::VARS[:overflow] = :empty_page    # default  (other options: :last_page and :exception)
+require 'pagy/extras/overflow'
+Pagy::VARS[:overflow] = :last_page    # default  (other options: :last_page and :exception)
 
 # Metadata extra: Provides the pagination metadata to Javascript frameworks like Vue.js, react.js, etc.
 # See https://ddnexus.github.io/pagy/extras/metadata
@@ -95,7 +95,7 @@ Pagy::VARS[:max_items]   = 100
 
 # Trim extra: Remove the page=1 param from links
 # See https://ddnexus.github.io/pagy/extras/trim
-# require 'pagy/extras/trim'
+require 'pagy/extras/trim'
 
 # Pagy Variables
 # See https://ddnexus.github.io/pagy/api/pagy#variables
@@ -104,7 +104,7 @@ Pagy::VARS[:max_items]   = 100
 
 # Instance variables
 # See https://ddnexus.github.io/pagy/api/pagy#instance-variables
-Pagy::VARS[:items] = 25
+Pagy::VARS[:items] = 20
 
 # Other Variables
 # See https://ddnexus.github.io/pagy/api/pagy#other-variables
