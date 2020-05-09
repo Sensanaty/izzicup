@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: izzicup_production
-  username: izzicup
-  password: <%= ENV['IZZICUP_DATABASE_PASSWORD'] %>
+  username: sensanaty
+  password: <%= ENV['DB_PASS'] %>>
