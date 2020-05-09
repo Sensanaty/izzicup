@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Izzicup</title>
+    <title><%= @title || "Izzicup" %></title>
+    <link rel="shortcut icon" href="favicon.ico">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +11,8 @@
   </head>
 
   <body>
+    <h1><%= link_to "Izzicup", root_path %></h1>
+    <%= render 'devise/shared/menu' unless current_page?(new_user_session_path) || current_page?(new_user_registration_path) %>
     <%= yield %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
