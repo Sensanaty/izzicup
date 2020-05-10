@@ -4,6 +4,10 @@
 
 <%== pagy_nav(@pagy) %>
 <%== pagy_items_selector_js(@pagy, :submit)  %>
+<%= simple_form_for :search_bar, url: parts_path, method: "GET" do |f| %>
+  <%= f.input :search_term, input_html: {value: ""} %>
+  <%= f.submit "Search" %>
+<% end %>
 
 <div class="table-div">
   <table>

@@ -4,6 +4,11 @@ class PartsController < ApplicationController
 
   def index
     @pagy, @parts = pagy(Part.all.order("updated_at DESC"))
+    @search_bar = params["search_bar"]
+    if @search_bar.present?
+      @search_term = @search_bar["search_term"]
+      @parts = Part.where("part_number ILIKE ? OR description ILIKE ? OR tag ILIKE ?", "%#{@search_term}%","%#{@search_term}%","%#{@search_term}%")
+    end
   end
 
   def show
