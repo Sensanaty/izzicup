@@ -34,7 +34,6 @@ RSpec.describe Part, type: :model do
 
     it 'is not valid without a Quantity Available' do
       part.quantity_available = ''
-      # expect { part.save }.to raise_error TypeError
       expect(part).to_not be_valid
     end
 
@@ -105,6 +104,7 @@ RSpec.describe Part, type: :model do
     end
 
     context "integers" do
+
       it 'Quantity Available cannot be 0 or negative' do
         part.quantity_available = 0
         expect(part).to_not be_valid, "Quantity Available cannot be 0"
@@ -127,6 +127,27 @@ RSpec.describe Part, type: :model do
 
         expect(part).to_not be_valid, "There must be more available than the minimum order"
       end
+
+      it 'Price Medium cannot negative' do
+      part.price_medium = -1
+      expect(part).to_not be_valid, "Price Medium cannot be negative"
+      end
+
+      it 'Price High cannot negative' do
+        part.price_high = -1
+        expect(part).to_not be_valid, "Price High cannot be negative"
+      end
+
+      it 'Cost Medium cannot be negative' do
+        part.cost_medium = -1
+        expect(part).to_not be_valid, "Cost Medium cannot be negative"
+      end
+
+      it 'Cost High cannot be negative' do
+        part.cost_high = -1
+        expect(part).to_not be_valid, "Cost High cannot be negative"
+      end
+
     end
   end
 end

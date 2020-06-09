@@ -254,7 +254,7 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   pry
   pry-rails
-  puma (~> 4.1)
+  puma (~> 4.3)
   rails (~> 6.0.2, >= 6.0.2.2)
   rspec-rails
   sass-rails (>= 6)
