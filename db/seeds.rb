@@ -19,11 +19,11 @@ puts "\nGenerating 25 Parts:\n"
   part = Part.new(part_number: Faker::DrivingLicence.british_driving_licence,
                   date_added: DateTime.current,
                   description: Faker::Appliance.equipment,
-                  quantity_available: 150,
+                  quantity_available: rand(100..200),
                   condition: "NE",
-                  base_price: 150,
-                  cost: 130,
-                  minimum_order: 100,
+                  base_price: rand(151..200),
+                  cost: rand(100..150),
+                  minimum_order: rand(1..100),
                   tag: "MFR 8130/TRACE; STOCK USA **MOQ=10EA**",
                   quote_type: "OUTRIGHT SALE")
   puts "\e[33m Part Number:\e[32m #{part.part_number}"

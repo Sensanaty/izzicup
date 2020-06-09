@@ -1,13 +1,14 @@
 class PartsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_part, only: [:edit, :update, :show]
+  helper_method :sort_column, :sort_direction
 
   def index
-    @pagy, @parts = pagy(Part.all.order("updated_at DESC"))
+    @pagy, @parts = pagy(Part.all.order(sort_column + " " + sort_direction))
     @search_bar = params["search_bar"]
     if @search_bar.present?
       @search_term = @search_bar["search_term"]
-      @parts = Part.where("part_number ILIKE ? OR description ILIKE ? OR tag ILIKE ?", "%#{@search_term}%","%#{@search_term}%","%#{@search_term}%")
+      @pagy, @parts = Part.where("part_number ILIKE ? OR description ILIKE ? OR tag ILIKE ?", "%#{@search_term}%","%#{@search_term}%","%#{@search_term}%")
     end
   end
 
@@ -36,5 +37,13 @@ class PartsController < ApplicationController
 
   def part_params
     params.require(:part).permit!
+  end
+
+  def sort_column
+    Part.column_names.include?(params[:sort]) ? params[:sort] : "updated_at"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
   end
 end

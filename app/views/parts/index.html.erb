@@ -14,44 +14,51 @@
     <thead>
     <tr>
       <td></td>
-      <td>Part Number</td>
-      <td>Date Added</td>
-      <td>Description</td>
-      <td>Quantity Available</td>
-      <td>Quantity Reserved</td>
-      <td>Quantity Sold</td>
-      <td>Condition</td>
-      <td>Cost ($)</td>
-      <td>Base Price ($)</td>
-      <td>Minimum Order</td>
-      <td>Order Discount</td>
-      <td>Max Order Discount</td>
-      <td>Lead Time</td>
-      <td>Quote Type</td>
-      <td>Tag</td>
-      <td>Last Updated</td>
+      <td><%= sortable "part_number", "Part Number" %></td>
+      <td><%= sortable "date_added", "Date Added" %></td>
+      <td><%= sortable "description", "Description" %></td>
+      <td><%= sortable "quantity_available", "Available" %></td>
+      <td><%= sortable "quantity_reserved", "Reserved" %></td>
+      <td><%= sortable "quantity_sold", "Sold" %></td>
+      <td><%= sortable "condition", "Condition" %></td>
+      <td><%= sortable "cost", "Cost $" %></td>
+      <td><%= sortable "base_price", "Price $" %></td>
+      <td><%= sortable "minimum_order", "Min Order" %></td>
+      <td><%= sortable "medium_order", "Order 2" %></td>
+      <td><%= sortable "max_order", "Order 3" %></td>
+      <td><%= sortable "lead_time", "Lead Time" %></td>
+      <td><%= sortable "quote_type", "Quote Type" %></td>
+      <td><%= sortable "tag", "Tag" %></td>
+      <td><%= sortable "updated_at", "Last Updated" %></td>
     </tr>
     </thead>
     <tbody>
     <% @parts.each do |part| %>
       <tr>
-        <td><%= link_to "Link", part_path(part) %> | <%= link_to "Edit Part", edit_part_path(part) %></td>
-        <td style="text-align: center"><%= part.part_number %></td>
-        <td style="text-align: center"><%= part.date_added.strftime('%d/%m/%Y') %></td>
-        <td><%= part.description %></td>
-        <td style="text-align: center"><%= part.quantity_available %></td>
-        <td style="text-align: center"><%= part.quantity_reserved%></td>
-        <td style="text-align: center"><%= part.quantity_sold%></td>
-        <td style="text-align: center"><%= part.condition%></td>
-        <td style="text-align: center"><%= '%.2f' % part.cost %></td>
-        <td style="text-align: center"><%= '%.2f' % part.base_price %></td>
-        <td style="text-align: center"><%= part.minimum_order %></td>
-        <td style="text-align: center"><%= part.medium_order%></td>
-        <td style="text-align: center"><%= part.max_order%></td>
-        <td style="text-align: center"><%= part.lead_time %></td>
-        <td><%= part.quote_type %></td>
-        <td><%= part.tag.upcase %></td>
-        <td><%= part.updated_at.strftime('%d/%m/%Y %H:%M') %></td>
+<!--        <td class="row-item "><%#= link_to "Link", part_path(part) %> | <%#= link_to "Edit Part", edit_part_path(part) %></td>-->
+        <td class="row-item dropdown">
+          <button class="dropdown-button">Menu</button>
+          <div class="dropdown-content">
+            <%= link_to "Part", part_path(part) %>
+            <%= link_to "Edit Part", edit_part_path(part) %>
+          </div>
+        </td>
+        <td class="row-item " style="text-align: center"><%= part.part_number %></td>
+        <td class="row-item " style="text-align: center"><%= part.date_added.strftime('%d/%m/%Y') %></td>
+        <td class="row-item "><%= part.description %></td>
+        <td class="row-item " style="text-align: center"><%= part.quantity_available %></td>
+        <td class="row-item " style="text-align: center"><%= part.quantity_reserved%></td>
+        <td class="row-item " style="text-align: center"><%= part.quantity_sold%></td>
+        <td class="row-item " style="text-align: center"><%= part.condition%></td>
+        <td class="row-item " style="text-align: center"><%= '%.2f' % part.cost %></td>
+        <td class="row-item " style="text-align: center"><%= '%.2f' % part.base_price %></td>
+        <td class="row-item " style="text-align: center"><%= part.minimum_order %></td>
+        <td class="row-item " style="text-align: center"><%= part.medium_order%></td>
+        <td class="row-item " style="text-align: center"><%= part.max_order%></td>
+        <td class="row-item " style="text-align: center"><%= part.lead_time %></td>
+        <td class="row-item "><%= part.quote_type %></td>
+        <td class="row-item "><%= part.tag.upcase %></td>
+        <td class="row-item "><%= part.updated_at.strftime('%d/%m/%Y %H:%M') %></td>
       </tr>
     <% end %>
     </tbody>
